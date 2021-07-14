@@ -64,7 +64,7 @@
     });
   }
 
-  function handleKeyDownUp(ev) {
+  function handleKeyDown(ev) {
     ev.preventDefault();
 
     if (currentEventType === 'keydown')
@@ -85,16 +85,22 @@
     }
   }
 
+  function handleKeyUp(ev) {
+    ev.preventDefault();
+
+    let repeatElem = document.getElementById('repeat');
+
+    repeatElem.innerHTML = 'No';
+  }
+
   function changeEventType(ev) {
     currentEventType = `${ev.target.value}`;
 
     if (currentEventType === 'keypress') {
       keypressWarningElem.toggleAttribute('hidden');
 
-      document.body.removeEventListener('keydown', handleKeyDownUp);
-      document.body.removeEventListener('keyup', handleKeyDownUp);
+      document.body.removeEventListener('keydown', handleKeyDown);
       document.body.addEventListener('keypress', handleKeyPress);
-      document.body.addEventListener('keyup', handleKeyPress);
 
       return;
     }
@@ -103,15 +109,13 @@
       keypressWarningElem.toggleAttribute('hidden');
 
       document.body.removeEventListener('keypress', handleKeyPress);
-      document.body.removeEventListener('keyup', handleKeyPress);
-      document.body.addEventListener('keydown', handleKeyDownUp);
-      document.body.addEventListener('keyup', handleKeyDownUp);
+      document.body.addEventListener('keydown', handleKeyDown);
     }
   }
 
   eventSelectorElem.addEventListener('change', changeEventType);
-  document.body.addEventListener('keydown', handleKeyDownUp);
-  document.body.addEventListener('keyup', handleKeyDownUp);
+  document.body.addEventListener('keydown', handleKeyDown);
+  document.body.addEventListener('keyup', handleKeyUp);
 
   createElements();
 })();
