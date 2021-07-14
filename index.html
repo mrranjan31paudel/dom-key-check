@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/style.css">
+  <title>Check the pressed key</title>
+</head>
+
+<body>
+  <div id="main-container">
+    <div class="text-center">
+      <h1>Press a key</h1>
+      <h4 class="sec-text">
+        This information can be useful when handeling keyboard events to
+        carryout various tasks (like game controls).
+      </h4>
+      <div>
+        <select id="event-selector">
+          <option value="keydown">keydown</option>
+          <option value="keypress">keypress</option>
+        </select>
+        <label class="small-text" for="event-selector">
+          <strong>keyboard-event</strong> is used.
+          <span id="keypress-warning" hidden>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/keypress_event" target="blank"
+              title="Deprecated">
+              <strong>* Deprecated</strong>
+              <span></span>
+            </a>
+          </span>
+        </label>
+      </div>
+    </div>
+    <div id="cards-container">
+    </div>
+  </div>
+
+  <script src="src/index.js"></script>
+</body>
+
+</html>
