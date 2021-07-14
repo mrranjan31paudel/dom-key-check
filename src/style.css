@@ -18,6 +18,12 @@ body {
   background-color: beige;
 }
 
+#cards-container-header {
+  padding: 8px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 #cards-container {
   display: flex;
   flex-direction: row;
@@ -68,7 +74,7 @@ h1 {
 
 #event-selector {
   outline-color: blueviolet;
-  padding: 2px;
+  padding: 6px 16px 6px 8px;
   margin: 2px;
 }
 
